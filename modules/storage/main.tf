@@ -10,6 +10,7 @@ resource "random_string" "unique_id" {
 }
 
 resource "azurerm_storage_account" "storage" {
+    count = var.create_storage ? 1 : 0
     name                        = "stor${random_string.unique_id.result}"
     resource_group_name         = azurerm_resource_group.rg.name
     location                    = azurerm_resource_group.rg.location
