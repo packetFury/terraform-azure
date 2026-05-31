@@ -4,6 +4,6 @@ module "storage_dev" {
 }
 
 module "cdn_dev" {
-  source     = ".../../modules/network"
+  source     = "../../modules/network"
   create_cdn = false
 }
