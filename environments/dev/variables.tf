@@ -8,6 +8,11 @@ variable "root_location" {
     description = "The location of the root resource group."
 }
 
+variable "swa_name" {
+  type        = string
+  description = "The name for the Static Web App."
+}
+
 variable "admin_contact" {
   type        = string
   description = "Email address for budget notification."
