@@ -1,6 +1,6 @@
 variable "resource_group_name" {
   type        = string
-  description = "The name of the resource group"
+  description = "The name of the resource group."
 }
 
 variable "location" {
@@ -15,7 +15,7 @@ variable "cdn_profile_name" {
 
 variable "cdn_endpoint_name" {
   type        = string
-  description = "The name of the Classic CDN endpoint."cd 
+  description = "The name of the Classic CDN endpoint."
 }
 
 variable "origin_host_name" {
