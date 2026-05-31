@@ -8,7 +8,7 @@ variable "location" {
   description = "The Azure region for the resources."
 }
 
-variable "cdn_profile_name" {
+/*variable "cdn_profile_name" {
   type        = string
   description = "The name of the Classic CDN profile."
 }
@@ -16,9 +16,19 @@ variable "cdn_profile_name" {
 variable "cdn_endpoint_name" {
   type        = string
   description = "The name of the Classic CDN endpoint."
-}
+}*/
 
 variable "origin_host_name" {
   type        = string
   description = "The fully qualified domain name of the backend origin."
+}
+
+variable "swa_name" {
+  type        = string
+  description = "The name for the Static Web App."
+}
+
+variable "app_settings" {
+  type    = map(string)
+  default = {}
 }
