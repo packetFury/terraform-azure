@@ -7,3 +7,8 @@ variable "root_location" {
     type        = string
     description = "The location of the root resource group."
 }
+
+variable "admin_contact" {
+  type        = string
+  description = "Email address for budget notification."
+}

@@ -2,6 +2,8 @@ module "storage_dev" {
   source            = "../../modules/storage"
   root_rg_name      = var.root_rg_name
   root_location     = var.root_location
+
+  admin_contact     = var.admin_contact
 }
 
 module "cdn_dev" {
