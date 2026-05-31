@@ -1,7 +1,7 @@
 variable "create_storage" {
-    type = bool
-    default = false
-    description = "Toggle creation on/off for Feature Flag Infrastructure."
+  type        = bool
+  default     = false
+  description = "Toggle creation on/off for Feature Flag Infrastructure."
 }
 
 /*variable "create_rg" {
