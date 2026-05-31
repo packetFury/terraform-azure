@@ -1,16 +1,9 @@
-variable "create_storage" {
-  type        = bool
-  default     = false
-  description = "Toggle creation on/off for Feature Flag Infrastructure."
+variable "root_rg_name" {
+  type        = string
+  description = "The name of the resource group passed from the root configuration."
 }
 
-/*variable "create_rg" {
-    type = bool
-    default = false
+variable "root_location" {
+  type        = string
+  description = "The location of the resource group passed from the root configuration."
 }
-
-variable "create_cdn" {
-    type = bool
-    default = false
-}
-*/

@@ -22,8 +22,3 @@ variable "origin_host_name" {
   type        = string
   description = "The fully qualified domain name of the backend origin."
 }
-
-variable "create_cdn" {
-  type        = bool
-  description = "Toggle creation on/off for Feature Flag Infrastructure."
-}

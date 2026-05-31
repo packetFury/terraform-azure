@@ -1,7 +1,6 @@
 resource "azurerm_resource_group" "rg" {
-  count    = var.create_rg ? 1 : 0
-  name     = "rg-web-portfolio"
-  location = "East US"
+  name     = var.root_rg_name
+  location = var.root_location
 }
 
 resource "random_string" "unique_id" {
@@ -11,10 +10,9 @@ resource "random_string" "unique_id" {
 }
 
 resource "azurerm_storage_account" "storage" {
-  count                    = var.create_storage ? 1 : 0
   name                     = "stor${random_string.unique_id.result}"
-  resource_group_name      = azurerm_resource_group.rg.name
-  location                 = azurerm_resource_group.rg.location
+  resource_group_name      = one(azurerm_resource_group.rg[*].name)
+  location                 = one(azurerm_resource_group.rg[*].location)
   account_kind             = "StorageV2"
   account_tier             = "Standard"
   account_replication_type = "LRS"
