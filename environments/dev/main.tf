@@ -9,7 +9,7 @@ module "storage_dev" {
 module "database_dev" {
   source              = "../../modules/database"
   resource_group_name = module.storage_dev.rg_name
-  location            = module.storage_dev.rg_location
+  location            = "East US 2"
   cosmos_account_name = "portfolio-db-dev-unique"
 }
 
