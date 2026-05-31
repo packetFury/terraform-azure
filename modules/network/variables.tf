@@ -15,7 +15,7 @@ variable "cdn_profile_name" {
 
 variable "cdn_endpoint_name" {
   type        = string
-  description = "The name of the Classic CDN endpoint."
+  description = "The name of the Classic CDN endpoint."cd 
 }
 
 variable "origin_host_name" {

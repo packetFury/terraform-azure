@@ -1,10 +1,10 @@
 output "rg_name" {
-  value       = try(azurerm_resource_group.rg.name, null)
+  value       = try(azurerm_resource_group.rg[*].name[0], null)
   description = "The name of the created resource group."
 }
 
 output "rg_location" {
-  value       = try(azurerm_resource_group.rg.location, null)
+  value       = try(azurerm_resource_group.rg[*].location[0], null)
   description = "The location of the created resource group."
 }
 
