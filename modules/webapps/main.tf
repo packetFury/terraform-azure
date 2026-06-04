@@ -20,7 +20,8 @@ resource "azurerm_cdn_endpoint" "cdn_endpoint" {
     name      = "${var.cdn_endpoint_name}-origin"
     host_name = var.origin_host_name
   }
-}*/
+}
+END LEGACY CODE*/
 
 resource "azurerm_static_web_app" "swa" {
   name                = var.swa_name
