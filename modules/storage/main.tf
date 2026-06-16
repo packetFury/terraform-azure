@@ -15,7 +15,11 @@ resource "azurerm_storage_account" "storage" {
   location                 = azurerm_resource_group.rg.location
   account_kind             = "StorageV2"
   account_tier             = "Standard"
-  account_replication_type = "LRS"
+  account_replication_type = "ZRS" #Pass CKV_AZURE_206
+
+  public_network_access_enabled = false #Pass CKV_AZURE_59
+  allow_nested_items_to_be_public = false #Pass CKV_AZURE_190
+  min_tls_version = "TLS1_2" #Pass CKV_AZURE_44
 
   tags = {
     environment = "dev"
