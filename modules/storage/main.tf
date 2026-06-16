@@ -21,9 +21,27 @@ resource "azurerm_storage_account" "storage" {
   allow_nested_items_to_be_public = false #Pass CKV_AZURE_190
   min_tls_version = "TLS1_2" #Pass CKV_AZURE_44
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   tags = {
     environment = "dev"
   }
+}
+
+resource "azurerm_role_assignment" "storage_kv_access" {
+  scope                   = var.key_vault_id
+  role_definition_name    = "Key Vault Crypto Service Encryption User"
+  principal_id            = azurerm_storage_account.storage.identity[0].principal_id
+}
+
+resource "azurerm_storage_account_customer_managed_key" "cmk" {
+  storage_account_id      = azurerm_storage_account.storage.id
+  key_vault_id            = var.key_vault_id
+  key_name                = var.encryption_key_name
+  
+  depends_on              = [azurerm_role_assignment.storage_kv_access]
 }
 
 resource "azurerm_consumption_budget_resource_group" "safety_cap" {
