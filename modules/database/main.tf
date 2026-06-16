@@ -1,9 +1,13 @@
 resource "azurerm_cosmosdb_account" "cosmos" {
+    # checkov:skip=CKV_AZURE_206: "Replication not needed: data is of negligible importance"
     name                = var.cosmos_account_name
     location            = var.location
     resource_group_name = var.resource_group_name
     offer_type          = "Standard"
     kind                = "GlobalDocumentDB"
+
+    access_key_metadata_writes_enabled = false #Pass CKV_AZURE_132
+    local_authentication_disabled = true #Pass CKV_AZURE_140
 
     free_tier_enabled   = true
 
